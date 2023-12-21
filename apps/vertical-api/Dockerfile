@@ -17,8 +17,4 @@ RUN addgroup --system vertical-api && \
 COPY dist/apps/vertical-api vertical-api
 RUN chown -R vertical-api:vertical-api .
 
-# You can remove this install step if you build with `--bundle` option.
-# The bundled output will include external dependencies.
-RUN npm --prefix vertical-api --omit=dev -f install
-
 CMD [ "node", "vertical-api" ]

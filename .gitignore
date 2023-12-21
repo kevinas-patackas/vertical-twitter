@@ -5,6 +5,11 @@ dist
 tmp
 /out-tsc
 
+# local .terraform directories
+**/.terraform/*
+**/.terraform.lock.hcl
+**/.terraform.lock
+
 # dependencies
 node_modules
 

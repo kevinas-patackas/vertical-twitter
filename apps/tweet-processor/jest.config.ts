@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'vertical-api',
+  displayName: 'tweet-processor',
   preset: '../../jest.preset.js',
   collectCoverageFrom: ['src/**/*.{js,ts}'],
   testEnvironment: 'node',
@@ -8,5 +8,5 @@ export default {
     '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/vertical-api',
+  coverageDirectory: '../../coverage/apps/tweet-processor',
 };

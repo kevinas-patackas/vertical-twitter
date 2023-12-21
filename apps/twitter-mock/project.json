@@ -1,7 +1,7 @@
 {
-  "name": "vertical-api",
+  "name": "twitter-mock",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/vertical-api/src",
+  "sourceRoot": "apps/twitter-mock/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -11,11 +11,11 @@
       "options": {
         "target": "node",
         "compiler": "tsc",
-        "outputPath": "dist/apps/vertical-api",
-        "main": "apps/vertical-api/src/main.ts",
-        "tsConfig": "apps/vertical-api/tsconfig.app.json",
-        "assets": ["apps/vertical-api/src/assets"],
-        "webpackConfig": "apps/vertical-api/webpack.config.js",
+        "outputPath": "dist/apps/twitter-mock",
+        "main": "apps/twitter-mock/src/main.ts",
+        "tsConfig": "apps/twitter-mock/tsconfig.app.json",
+        "assets": ["apps/twitter-mock/src/assets"],
+        "webpackConfig": "apps/twitter-mock/webpack.config.js",
         "outputFileName": "index.js",
         "externalDependencies": "none"
       },
@@ -30,14 +30,14 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "vertical-api:build"
+        "buildTarget": "twitter-mock:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "vertical-api:build:development"
+          "buildTarget": "twitter-mock:build:development"
         },
         "production": {
-          "buildTarget": "vertical-api:build:production"
+          "buildTarget": "twitter-mock:build:production"
         }
       }
     },
@@ -49,12 +49,12 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/vertical-api/jest.config.ts"
+        "jestConfig": "apps/twitter-mock/jest.config.ts"
       }
     },
     "docker-build": {
       "dependsOn": ["build"],
-      "command": "docker build -f apps/vertical-api/Dockerfile . -t vertical-api"
+      "command": "docker build -f apps/twitter-mock/Dockerfile . -t twitter-mock"
     }
   },
   "tags": []
