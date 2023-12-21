@@ -11,7 +11,8 @@ This project is a Twitter tweet monitoring system that allows users to browse an
 - Test coverage and quality.
 - vertical-api tweet stream monitor autmatically reconnects when connection to twitter API stream errors or closes. Problem is that messages between these connections are lost. Twitter API allows specifying "backfill_minutes" query param, to fill the gap, but this was not implemented here.
 - Use some actual geo API to retrieve country name by coordinates
-- Accessing saved tweets in dynamoDB is wrong. To get items from DynamoDB, it uses `scan` operation which can be costly. And there is no pagination or anything. The code simply scans whole table and returns result.
+- Accessing saved tweets in dynamoDB is wrong. It uses `scan` operation to get items from DynamoDB, which can be costly. And there is no pagination or anything. The code simply scans whole table and returns result.
+- Add Swagger to make it more clear how endpoints look / should be used.
 - Ideally - test this with real Twitter API.
 
 ## Project Structure
