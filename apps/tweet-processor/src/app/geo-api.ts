@@ -21,7 +21,7 @@ export async function getTweetCountryName(tweet: TwitterStreamItem) {
     }
   );
   logger.info('Successfully received data from GEO API', {
-    event: geoApiResponse,
+    event: geoApiResponse.data,
   });
   return geoApiResponse.data.name;
 }

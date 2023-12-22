@@ -1,5 +1,3 @@
-# policies.tf
-
 # ECS task execution role
 resource "aws_iam_role" "ecs_task_execution_role" {
   name               = "ecs-task-execution-role"
@@ -137,6 +135,18 @@ data "aws_iam_policy_document" "tweet_processor_policy_pack" {
 
     resources = [
       aws_dynamodb_table.processed_tweets.arn
+    ]
+  }
+
+  statement {
+    sid    = "getSecret"
+    effect = "Allow"
+    actions = [
+      "secretsmanager:GetSecretValue"
+    ]
+
+    resources = [
+      "arn:aws:secretsmanager:${local.region_name}:${local.aws_account_id}:secret:geo_api_token-*"
     ]
   }
 

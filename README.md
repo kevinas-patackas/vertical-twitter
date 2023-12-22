@@ -6,6 +6,16 @@ This project is a Twitter tweet monitoring system that allows users to browse an
 
 \*_not really_
 
+### Basic "How it works"
+
+1. **vertical-api** (AWS Fargate) Listens to Twitter real time Tweet Stream.
+2. **vertical-api** (AWS Fargate) sends all received tweets to **tweets-sqs** (AWS SQS)
+3. **tweets-sqs** (AWS SQS) triggers **tweet-processor** (AWS Lambda)
+4. **tweet-processor** (AWS Lambda) tries saving item to dynamoDB. If it's duplicate (tweetId already exists), then it ends here.
+5. **tweet-processor** (AWS Lambda) calls external GEO API to get country name of tweet (if tweet has coordinates. If not it will say "unknown").
+6. **tweet-processor** (AWS Lambda) creates log message in CloudWatch with country name in it.
+7. Cloudwatch Metric Filter picks up this log and you can see where Tweets are trending.
+
 ## Things to improve / known issues
 
 - Test coverage and quality.

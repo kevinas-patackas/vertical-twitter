@@ -1,4 +1,3 @@
-# dynamo.tf
 resource "aws_dynamodb_table" "processed_tweets" {
   name           = "processed-tweets"
   hash_key       = "tweetId"

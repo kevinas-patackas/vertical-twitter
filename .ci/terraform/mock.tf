@@ -36,7 +36,6 @@ resource "aws_ecs_service" "twitter_mock" {
     container_port   = "3000"
   }
 
-  # JUST ADDED, MIGHT NEED TO REMOVE
   depends_on = [aws_lb_listener_rule.twitter_mock_rule]
 }
 

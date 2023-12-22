@@ -1,4 +1,3 @@
-# cloudwatch.tf
 resource "aws_cloudwatch_log_group" "vertical_api" {
   name = "/ecs/vertical-api"
 }

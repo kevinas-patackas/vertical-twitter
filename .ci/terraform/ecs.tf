@@ -1,4 +1,3 @@
-# ecs.tf
 resource "aws_ecs_cluster" "vertical_api" {
   name = "vertical-api"
 }
@@ -34,7 +33,6 @@ resource "aws_ecs_service" "vertical_api" {
     container_port   = "3000"
   }
 
-  # JUST ADDED, MIGHT NEED TO REMOVE
   depends_on = [aws_lb_listener_rule.vertical_api_rule]
 }
 

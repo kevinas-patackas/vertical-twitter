@@ -12,10 +12,6 @@ const app = express();
 app.use(loggerMiddleware);
 app.use(express.json());
 
-app.get('/mock', (req, res) => {
-  res.send({ message: 'Hello API' });
-});
-
 app.get('/mock/health', (_req, res) => {
   logger.info('Health check');
   res.send({
@@ -27,11 +23,15 @@ app.get('/mock/health', (_req, res) => {
 app.get('/mock/geo-api/country', (req, res) => {
   const lat = req.query.lat;
   const long = req.query.long;
-  console.log(lat, long);
-  // lat / long
   const country = geoRev.country(lat, long);
 
   res.send(country[0]);
+});
+
+app.post('/mock/2/tweets/search/stream/rules', (_req, res) => {
+  res.send({
+    data: [],
+  });
 });
 
 app.get('/mock/2/tweets/search/stream', (_req, res) => {

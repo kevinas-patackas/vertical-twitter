@@ -16,8 +16,9 @@ resource "aws_lambda_function" "tweet_processor" {
 
   environment {
     variables = {
-      PROCESSED_TWEETS_TABLE = "${aws_dynamodb_table.processed_tweets.name}"
-      GEO_API_URL            = "http://${aws_alb.vertical_twitter.dns_name}/mock"
+      PROCESSED_TWEETS_TABLE    = "${aws_dynamodb_table.processed_tweets.name}"
+      GEO_API_URL               = "http://${aws_alb.vertical_twitter.dns_name}/mock"
+      GEO_API_TOKEN_SECRET_NAME = "geo_api_token"
     }
   }
 }

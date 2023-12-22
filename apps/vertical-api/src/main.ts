@@ -7,12 +7,6 @@ import config from './app/config';
 import { getSecretByName } from './app/utils/secrets-manager';
 
 async function initializeApp() {
-  //TEMP
-  // config['TWITTER_API_URL'] = 'http://localhost:3001/mock';
-  // config['TWITTER_TOKEN'] = 'this-is-twitter-token';
-  // config['VERTICAL_API_TOKEN'] = 'this-is-vertical-api-token';
-  //TEMP
-
   config.TWITTER_TOKEN = await getSecretByName(
     config.TWITTER_TOKEN_SECRET_NAME
   );
